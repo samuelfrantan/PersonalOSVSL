@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal OS — Your entire life, running on one system.</title>
+  <meta name="description" content="A custom AI operating system built around you — tracks your finances, investments, health, and goals. Delivered to your phone every morning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #100f0c;
+      color: #f5f2ed;
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* GLOWS */
+    .page { max-width: 760px; margin: 0 auto; position: relative; overflow: hidden; }
+    .glow-top {
+      position: absolute; top: -140px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(200,150,60,0.2) 0%, rgba(140,90,30,0.09) 42%, transparent 68%);
+      pointer-events: none; z-index: 0;
+    }
+    .glow-mid {
+      position: absolute; top: 700px; right: -120px;
+      width: 550px; height: 550px;
+      background: radial-gradient(ellipse, rgba(90,65,160,0.12) 0%, transparent 62%);
+      pointer-events: none; z-index: 0;
+    }
+    .glow-bot {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(200,150,60,0.14) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 36px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.09);
+      position: relative; z-index: 1;
+    }
+    .nav-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.09em; color: #aaa; text-transform: uppercase; }
+    .nav-cta {
+      background: #e8c87a; color: #100f0c; border: none;
+      padding: 9px 20px; border-radius: 7px;
+      font-size: 13px; font-weight: 500; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: background 0.15s;
+    }
+    .nav-cta:hover { background: #d4b468; }
+
+    /* HERO */
+    .hero {
+      padding: 88px 36px 68px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.07);
+      position: relative; z-index: 1;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(232,200,122,0.1);
+      border: 0.5px solid rgba(232,200,122,0.28);
+      color: #c9a84c; font-size: 11px; letter-spacing: 0.11em;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 30px; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: 46px; font-weight: 500; line-height: 1.1;
+      color: #faf8f4; margin-bottom: 22px; letter-spacing: -0.028em;
+    }
+    .hero h1 em { color: #c9a84c; font-style: normal; }
+    .hero-sub {
+      font-size: 17px; color: #888; line-height: 1.7;
+      max-width: 520px; margin-bottom: 14px;
+    }
+    .hero-proof {
+      font-size: 13px; color: #555; margin-bottom: 36px; line-height: 1.5;
+    }
+    .hero-proof span { color: #7a6840; }
+    .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: #e8c87a; color: #100f0c; border: none;
+      padding: 14px 28px; border-radius: 8px;
+      font-size: 15px; font-weight: 500; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: background 0.15s;
+    }
+    .btn-primary:hover { background: #d4b468; }
+    .btn-ghost {
+      background: transparent; color: #999;
+      border: 0.5px solid rgba(255,255,255,0.15);
+      padding: 14px 28px; border-radius: 8px;
+      font-size: 15px; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: all 0.15s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.28); color: #ccc; }
+
+    /* SOCIAL PROOF BAR */
+    .proof-bar {
+      padding: 18px 36px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; gap: 32px;
+      position: relative; z-index: 1; flex-wrap: wrap;
+    }
+    .proof-item { display: flex; align-items: center; gap: 8px; }
+    .proof-dot { width: 6px; height: 6px; border-radius: 50%; background: #4a8c5c; flex-shrink: 0; }
+    .proof-text { font-size: 12px; color: #666; letter-spacing: 0.02em; }
+
+    /* SECTIONS */
+    section {
+      padding: 68px 36px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.07);
+      position: relative; z-index: 1;
+    }
+    .section-label {
+      font-size: 11px; letter-spacing: 0.13em; color: #c9a84c;
+      text-transform: uppercase; margin-bottom: 20px; opacity: 0.85;
+    }
+    section h2 {
+      font-size: 30px; font-weight: 500; color: #faf8f4;
+      margin-bottom: 14px; letter-spacing: -0.018em;
+    }
+    .section-sub {
+      font-size: 16px; color: #777; line-height: 1.65; margin-bottom: 32px;
+    }
+
+    /* PAIN */
+    .pain-list { display: flex; flex-direction: column; gap: 10px; }
+    .pain-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 17px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+    }
+    .pain-x { color: #8a3a1a; font-size: 13px; margin-top: 2px; flex-shrink: 0; font-weight: 600; }
+    .pain-text { font-size: 15px; color: #999; line-height: 1.55; }
+
+    /* VIDEO */
+    .video-wrap {
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 14px; height: 400px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 18px;
+      margin-top: 28px; position: relative; overflow: hidden; cursor: pointer;
+    }
+    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 14px; }
+    .video-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 320px; height: 320px;
+      background: radial-gradient(ellipse, rgba(232,200,122,0.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .play-btn {
+      width: 64px; height: 64px; background: #e8c87a; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    .play-icon {
+      width: 0; height: 0;
+      border-top: 13px solid transparent; border-bottom: 13px solid transparent;
+      border-left: 22px solid #100f0c; margin-left: 6px;
+    }
+    .video-label { font-size: 14px; color: #666; position: relative; z-index: 1; }
+
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .feature-card {
+      background: rgba(255,255,255,0.025);
+      border: 0.5px solid rgba(255,255,255,0.09);
+      border-radius: 12px; padding: 22px;
+    }
+    .feature-icon { font-size: 22px; margin-bottom: 12px; }
+    .feature-title { font-size: 15px; font-weight: 500; color: #e0ddd8; margin-bottom: 7px; }
+    .feature-desc { font-size: 13px; color: #666; line-height: 1.6; }
+
+    /* STEPS */
+    .steps { display: flex; flex-direction: column; }
+    .step {
+      display: flex; gap: 20px; padding: 22px 0;
+      border-bottom: 0.5px solid rgba(255,255,255,0.05);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 34px; height: 34px;
+      background: rgba(232,200,122,0.1);
+      border: 0.5px solid rgba(232,200,122,0.22);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 500; color: #c9a84c; flex-shrink: 0;
+    }
+    .step-content h3 { font-size: 16px; font-weight: 500; color: #e0ddd8; margin-bottom: 6px; }
+    .step-content p { font-size: 14px; color: #666; line-height: 1.6; }
+
+    /* CTA */
+    .cta-section {
+      padding: 80px 36px; text-align: center;
+      position: relative; z-index: 1; border-bottom: none;
+    }
+    .cta-section h2 { font-size: 34px; font-weight: 500; color: #faf8f4; margin-bottom: 14px; letter-spacing: -0.02em; }
+    .cta-section p { font-size: 16px; color: #777; margin-bottom: 36px; line-height: 1.65; }
+    .cta-btn {
+      background: #e8c87a; color: #100f0c; border: none;
+      padding: 16px 44px; border-radius: 9px;
+      font-size: 16px; font-weight: 500; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: background 0.15s;
+    }
+    .cta-btn:hover { background: #d4b468; }
+    .cta-note { font-size: 12px; color: #3d3d3a; margin-top: 16px; }
+    .urgency { display: inline-block; font-size: 12px; color: #7a5a2a; background: rgba(232,200,122,0.08); border: 0.5px solid rgba(232,200,122,0.18); padding: 5px 14px; border-radius: 20px; margin-bottom: 24px; }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 36px;
+      border-top: 0.5px solid rgba(255,255,255,0.07);
+      display: flex; justify-content: space-between; align-items: center;
+      position: relative; z-index: 1; flex-wrap: wrap; gap: 8px;
+    }
+    .footer-left { display: flex; flex-direction: column; gap: 4px; }
+    footer span, footer a { font-size: 12px; color: #3a3a38; text-decoration: none; }
+    footer a:hover { color: #666; }
+
+    /* POPUP OVERLAY */
+    .popup-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(10,9,8,0.85);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 999; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+    .popup-overlay.active { opacity: 1; pointer-events: all; }
+    .popup {
+      background: #161410;
+      border: 0.5px solid rgba(232,200,122,0.2);
+      border-radius: 16px;
+      padding: 40px 36px;
+      max-width: 420px; width: 90%;
+      position: relative;
+      transform: translateY(16px);
+      transition: transform 0.3s ease;
+    }
+    .popup-overlay.active .popup { transform: translateY(0); }
+    .popup-close {
+      position: absolute; top: 16px; right: 18px;
+      background: none; border: none; color: #555; font-size: 20px;
+      cursor: pointer; line-height: 1; padding: 4px;
+    }
+    .popup-close:hover { color: #999; }
+    .popup-tag {
+      display: inline-block;
+      background: rgba(232,200,122,0.1);
+      border: 0.5px solid rgba(232,200,122,0.25);
+      color: #c9a84c; font-size: 11px; letter-spacing: 0.1em;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 20px; text-transform: uppercase;
+    }
+    .popup h3 { font-size: 22px; font-weight: 500; color: #faf8f4; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .popup p { font-size: 14px; color: #777; line-height: 1.6; margin-bottom: 24px; }
+    .popup-form { display: flex; flex-direction: column; gap: 10px; }
+    .popup-form input {
+      background: rgba(255,255,255,0.05);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 8px; padding: 13px 16px;
+      color: #f5f2ed; font-size: 15px; font-family: inherit;
+      outline: none; transition: border-color 0.15s;
+      width: 100%;
+    }
+    .popup-form input::placeholder { color: #444; }
+    .popup-form input:focus { border-color: rgba(232,200,122,0.4); }
+    .popup-submit {
+      background: #e8c87a; color: #100f0c; border: none;
+      padding: 14px; border-radius: 8px;
+      font-size: 15px; font-weight: 500; cursor: pointer;
+      margin-top: 4px; transition: background 0.15s; width: 100%;
+    }
+    .popup-submit:hover { background: #d4b468; }
+    .popup-fine { font-size: 11px; color: #3a3a38; text-align: center; margin-top: 10px; }
+    .popup-success { text-align: center; padding: 12px 0; }
+    .popup-success h3 { font-size: 20px; color: #faf8f4; margin-bottom: 10px; }
+    .popup-success p { font-size: 14px; color: #777; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 32px; }
+      .features-grid { grid-template-columns: 1fr; }
+      nav, .hero, section, .cta-section, footer, .proof-bar { padding-left: 20px; padding-right: 20px; }
+      .hero { padding-top: 56px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="glow-top"></div>
+  <div class="glow-mid"></div>
+  <div class="glow-bot"></div>
+
+  <nav>
+    <span class="nav-logo">Personal OS</span>
+    <a href="#" class="nav-cta" onclick="showPopup(); return false;">Book a call</a>
+  </nav>
+
+  <div class="proof-bar">
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">Built for entrepreneurs</span></div>
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">Live in 48 hours</span></div>
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">Runs every day on autopilot</span></div>
+  </div>
+
+  <div class="hero">
+    <span class="hero-tag">AI-Powered · Done For You</span>
+    <h1>Your entire life,<br><em>running on one system.</em></h1>
+    <p class="hero-sub">A custom AI operating system built around you — tracks your finances, investments, health, and goals. Delivered to your phone every morning.</p>
+    <p class="hero-proof">Used daily by entrepreneurs who track everything. <span>Zero spreadsheets. Zero guessing.</span></p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary" onclick="showPopup(); return false;">Get your free consultation →</a>
+      <a href="#demo" class="btn-ghost">Watch the demo</a>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-label">The problem</div>
+    <h2>You're running blind.</h2>
+    <p class="section-sub">Most entrepreneurs track nothing, react to everything, and wonder why they feel scattered at the end of every week.</p>
+    <div class="pain-list">
+      <div class="pain-item"><span class="pain-x">✕</span><span class="pain-text">No real-time view of where your money is going — you find out at tax time</span></div>
+      <div class="pain-item"><span class="pain-x">✕</span><span class="pain-text">Your health, finances, and business live in 5 different apps with zero connection between them</span></div>
+      <div class="pain-item"><span class="pain-x">✕</span><span class="pain-text">No morning briefing, no weekly review — you start every day reacting instead of executing</span></div>
+      <div class="pain-item"><span class="pain-x">✕</span><span class="pain-text">Your investments sit idle because you never have a clear picture of what to actually do next</span></div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="section-label">The solution</div>
+    <h2>Watch it in action.</h2>
+    <p class="section-sub">A real walkthrough of a live Personal OS — real data, real automations, built around one person's actual life.</p>
+    <div class="video-wrap" id="video-wrap">
+      <div class="video-glow"></div>
+      <div class="play-btn"><div class="play-icon"></div></div>
+      <span class="video-label">Full demo walkthrough — coming soon</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">What's included</div>
+    <h2>Everything in one place.</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <div class="feature-title">Telegram bot</div>
+        <div class="feature-desc">Log a transaction in 5 seconds. Get your morning diagnosis every day at 7am.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Finance dashboard</div>
+        <div class="feature-desc">Real-time spend, income, savings rate, and business expenses. Always current.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <div class="feature-title">Investment tracker</div>
+        <div class="feature-desc">Portfolio value, projections, and a daily AI briefing from your personal CFO.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏃</div>
+        <div class="feature-title">Health & recovery</div>
+        <div class="feature-desc">Oura ring sync, workout logging, macros — all in the same dashboard.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div class="feature-title">Weekly review</div>
+        <div class="feature-desc">AI-generated end-of-week analysis. Revenue, training, wins, and next week's game plan.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-title">Built for you</div>
+        <div class="feature-desc">Every system is custom-configured around your life, income, goals, and routine.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">How it works</div>
+    <h2>From call to live in 48 hours.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Book a 20-minute call</h3>
+          <p>We walk you through the system live and learn about your life — income, goals, health setup, how you operate day to day.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>We build your OS</h3>
+          <p>We configure everything around you. Your categories, your Telegram bot, your morning diagnosis, your investment tracking.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Go live — and stay live</h3>
+          <p>You get a link, a Telegram bot, and a system that runs every single day whether you touch it or not.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-section">
+    <span class="urgency">⚡ Limited spots available this month</span>
+    <h2>Ready to get your OS?</h2>
+    <p>Book a 20-minute call. We'll show you the system live<br>and build it around you within 48 hours.</p>
+    <a href="#" class="cta-btn" onclick="showPopup(); return false;">Book a free call →</a>
+    <div class="cta-note">20 minutes · No pressure · We'll show you everything live</div>
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <span>© 2026 Personal OS</span>
+      <a href="mailto:samuelfrantan@gmail.com">samuelfrantan@gmail.com</a>
+      <a href="https://samfranco.ca" target="_blank">samfranco.ca</a>
+    </div>
+    <span>Built with AI</span>
+  </footer>
+</div>
+
+<!-- LEAD CAPTURE POPUP -->
+<div class="popup-overlay" id="popup-overlay" onclick="handleOverlayClick(event)">
+  <div class="popup" id="popup">
+    <button class="popup-close" onclick="closePopup()">×</button>
+    <div id="popup-content">
+      <span class="popup-tag">Free Consultation</span>
+      <h3>Get your Personal OS.</h3>
+      <p>Drop your info and we'll reach out to book your free 20-minute walkthrough call.</p>
+      <form class="popup-form" onsubmit="submitForm(event)">
+        <input type="text" id="f-name" placeholder="Your name" required autocomplete="name" />
+        <input type="email" id="f-email" placeholder="Email address" required autocomplete="email" />
+        <input type="tel" id="f-phone" placeholder="Phone number" required autocomplete="tel" />
+        <button type="submit" class="popup-submit">Get my free consultation →</button>
+      </form>
+      <p class="popup-fine">No spam. We'll only reach out to book your call.</p>
+    </div>
+    <div id="popup-success" class="popup-success" style="display:none">
+      <h3>You're in. ✓</h3>
+      <p>We'll reach out within 24 hours to book your call.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  var popupShown = false;
+
+  function showPopup() {
+    if (popupShown) return;
+    popupShown = true;
+    document.getElementById('popup-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    document.getElementById('popup-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('popup-overlay')) closePopup();
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    var name  = document.getElementById('f-name').value;
+    var email = document.getElementById('f-email').value;
+    var phone = document.getElementById('f-phone').value;
+    var mailto = 'mailto:samuelfrantan@gmail.com'
+      + '?subject=Personal OS Lead: ' + encodeURIComponent(name)
+      + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone);
+    window.location.href = mailto;
+    document.getElementById('popup-content').style.display = 'none';
+    document.getElementById('popup-success').style.display = 'block';
+    setTimeout(closePopup, 3000);
+  }
+
+  // Show popup after 6 seconds
+  setTimeout(function() {
+    if (!popupShown) showPopup();
+  }, 6000);
+
+  // Show popup on exit intent
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY < 10 && !popupShown) showPopup();
+  });
+</script>
+</body>
+</html>
