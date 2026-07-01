@@ -473,10 +473,13 @@
     var name  = document.getElementById('f-name').value;
     var email = document.getElementById('f-email').value;
     var phone = document.getElementById('f-phone').value;
-    var mailto = 'mailto:me@samfranco.ca'
-      + '?subject=Personal OS Lead: ' + encodeURIComponent(name)
-      + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone);
-    window.location.href = mailto;
+
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, email: email, phone: phone })
+    });
+
     document.getElementById('popup-content').style.display = 'none';
     document.getElementById('popup-success').style.display = 'block';
     setTimeout(closePopup, 3000);
