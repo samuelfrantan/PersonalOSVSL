@@ -316,7 +316,7 @@
 
   <nav>
     <span class="nav-logo">Personal OS</span>
-    <a href="https://calendly.com/samuelfrantan/ai-os-discovery" target="_blank" class="nav-cta">Book a call</a>
+    <a href="https://cal.com/samfranco/intro" target="_blank" class="nav-cta">Book a call</a>
   </nav>
 
   <div class="proof-bar">
@@ -331,7 +331,7 @@
     <p class="hero-sub">A custom AI operating system built around you — tracks your finances, investments, health, and goals. Delivered to your phone every morning.</p>
     <p class="hero-proof">Used daily by entrepreneurs who track everything. <span>Zero spreadsheets. Zero guessing.</span></p>
     <div class="hero-actions">
-      <a href="https://calendly.com/samuelfrantan/ai-os-discovery" target="_blank" class="btn-primary">Get your free consultation →</a>
+      <a href="https://cal.com/samfranco/intro" target="_blank" class="btn-primary">Get your free consultation →</a>
       <a href="#demo" class="btn-ghost">Watch the demo</a>
     </div>
   </div>
@@ -428,7 +428,7 @@
     <span class="urgency">⚡ Limited spots available this month</span>
     <h2>Ready to get your OS?</h2>
     <p>Book a 20-minute call. We'll show you the system live<br>and build it around you within 48 hours.</p>
-    <a href="https://calendly.com/samuelfrantan/ai-os-discovery" target="_blank" class="cta-btn">Book a free call →</a>
+    <a href="https://cal.com/samfranco/intro" target="_blank" class="cta-btn">Book a free call →</a>
     <div class="cta-note">20 minutes · No pressure · We'll show you everything live</div>
   </div>
 
@@ -514,8 +514,8 @@
     if (e.clientY < 10 && !popupShown) showPopup();
   });
 
-  // Track Calendly clicks as booking intent
-  document.querySelectorAll('a[href*="calendly.com"]').forEach(function(a) {
+  // Track booking link clicks as booking intent (event name kept for ad continuity)
+  document.querySelectorAll('a[href*="cal.com/samfranco"]').forEach(function(a) {
     a.addEventListener('click', function() {
       if (window.fbq) fbq('trackCustom', 'CalendlyClick');
     });
