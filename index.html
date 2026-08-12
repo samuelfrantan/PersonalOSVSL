@@ -8,6 +8,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '28196621343288142');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=28196621343288142&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -480,6 +497,8 @@
       body: JSON.stringify({ name: name, email: email, phone: phone })
     });
 
+    if (window.fbq) fbq('track', 'Lead');
+
     document.getElementById('popup-content').style.display = 'none';
     document.getElementById('popup-success').style.display = 'block';
     setTimeout(closePopup, 3000);
@@ -493,6 +512,13 @@
   // Show popup on exit intent
   document.addEventListener('mouseleave', function(e) {
     if (e.clientY < 10 && !popupShown) showPopup();
+  });
+
+  // Track Calendly clicks as booking intent
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      if (window.fbq) fbq('trackCustom', 'CalendlyClick');
+    });
   });
 </script>
 </body>
