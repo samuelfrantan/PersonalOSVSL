@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Personal OS — Your entire life, running on one system.</title>
-  <meta name="description" content="A custom AI operating system built around you — tracks your finances, investments, health, and goals. Delivered to your phone every morning." />
+  <title>Personal OS. Your entire life, running on one system.</title>
+  <meta name="description" content="A custom AI operating system built around you. It tracks your finances, investments, health, and goals. Delivered to your phone every morning." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
@@ -90,6 +90,10 @@
       color: #faf8f4; margin-bottom: 22px; letter-spacing: -0.028em;
     }
     .hero h1 em { color: #c9a84c; font-style: normal; }
+    .hero-cadence {
+      font-size: 12px; letter-spacing: 0.09em; text-transform: uppercase;
+      color: #7a6840; margin-bottom: 22px; font-weight: 500;
+    }
     .hero-sub {
       font-size: 17px; color: #888; line-height: 1.7;
       max-width: 520px; margin-bottom: 14px;
@@ -194,6 +198,22 @@
     .feature-icon { font-size: 22px; margin-bottom: 12px; }
     .feature-title { font-size: 15px; font-weight: 500; color: #e0ddd8; margin-bottom: 7px; }
     .feature-desc { font-size: 13px; color: #666; line-height: 1.6; }
+
+    /* OWNERSHIP */
+    .own-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+    .own-col { border-radius: 12px; padding: 22px; border: 0.5px solid rgba(255,255,255,0.09); }
+    .own-col.rent { background: rgba(255,255,255,0.02); }
+    .own-col.keep { background: rgba(232,200,122,0.05); border-color: rgba(232,200,122,0.22); }
+    .own-col-label {
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 16px; font-weight: 500;
+    }
+    .own-col.rent .own-col-label { color: #665; }
+    .own-col.keep .own-col-label { color: #c9a84c; }
+    .own-row { padding: 14px 0; border-bottom: 0.5px solid rgba(255,255,255,0.06); }
+    .own-row:last-child { border-bottom: none; }
+    .own-row-title { font-size: 14px; color: #ccc; margin-bottom: 4px; font-weight: 500; }
+    .own-row-desc { font-size: 13px; color: #666; line-height: 1.55; }
 
     /* STEPS */
     .steps { display: flex; flex-direction: column; }
@@ -303,6 +323,7 @@
     @media (max-width: 600px) {
       .hero h1 { font-size: 32px; }
       .features-grid { grid-template-columns: 1fr; }
+      .own-grid { grid-template-columns: 1fr; }
       nav, .hero, section, .cta-section, footer, .proof-bar { padding-left: 20px; padding-right: 20px; }
       .hero { padding-top: 56px; }
     }
@@ -320,16 +341,17 @@
   </nav>
 
   <div class="proof-bar">
-    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">Built for entrepreneurs</span></div>
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">Built for high-income operators</span></div>
     <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">Live in 48 hours</span></div>
-    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">Runs every day on autopilot</span></div>
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">Runs every single day</span></div>
   </div>
 
   <div class="hero">
     <span class="hero-tag">AI-Powered · Done For You</span>
     <h1>Your entire life,<br><em>running on one system.</em></h1>
-    <p class="hero-sub">A custom AI operating system built around you — tracks your finances, investments, health, and goals. Delivered to your phone every morning.</p>
-    <p class="hero-proof">Used daily by entrepreneurs who track everything. <span>Zero spreadsheets. Zero guessing.</span></p>
+    <p class="hero-cadence">Built once. Yours forever. Runs every day.</p>
+    <p class="hero-sub">A custom AI operating system built around you. It tracks your finances, investments, health, and goals. Delivered to your phone every morning.</p>
+    <p class="hero-proof">Used daily by founders, execs, and high-income operators who track everything. <span>Zero spreadsheets. Zero guessing.</span></p>
     <div class="hero-actions">
       <a href="https://cal.com/samfranco/intro" target="_blank" class="btn-primary">Get your free consultation →</a>
       <a href="#demo" class="btn-ghost">Watch the demo</a>
@@ -339,11 +361,11 @@
   <section>
     <div class="section-label">The problem</div>
     <h2>You're running blind.</h2>
-    <p class="section-sub">Most entrepreneurs track nothing, react to everything, and wonder why they feel scattered at the end of every week.</p>
+    <p class="section-sub">Most high-income operators track nothing, react to everything, and wonder why they feel scattered at the end of every week.</p>
     <div class="pain-list">
-      <div class="pain-item"><span class="pain-x">✕</span><span class="pain-text">No real-time view of where your money is going — you find out at tax time</span></div>
+      <div class="pain-item"><span class="pain-x">✕</span><span class="pain-text">No real-time view of where your money is going, you find out at tax time</span></div>
       <div class="pain-item"><span class="pain-x">✕</span><span class="pain-text">Your health, finances, and business live in 5 different apps with zero connection between them</span></div>
-      <div class="pain-item"><span class="pain-x">✕</span><span class="pain-text">No morning briefing, no weekly review — you start every day reacting instead of executing</span></div>
+      <div class="pain-item"><span class="pain-x">✕</span><span class="pain-text">No morning briefing, no weekly review, you start every day reacting instead of executing</span></div>
       <div class="pain-item"><span class="pain-x">✕</span><span class="pain-text">Your investments sit idle because you never have a clear picture of what to actually do next</span></div>
     </div>
   </section>
@@ -351,7 +373,7 @@
   <section id="demo">
     <div class="section-label">The solution</div>
     <h2>Watch it in action.</h2>
-    <p class="section-sub">A real walkthrough of a live Personal OS — real data, real automations, built around one person's actual life.</p>
+    <p class="section-sub">A real walkthrough of a live Personal OS. Real data, real automations, built around one person's actual life.</p>
     <div class="video-wrap" id="video-wrap">
       <div class="video-glow"></div>
       <iframe src="https://www.loom.com/embed/60a1b1f3fb40465886991b7b1fe3d4f8?hide_owner=true&hideEmbedTopBar=true" allowfullscreen allow="autoplay; fullscreen"></iframe>
@@ -381,7 +403,7 @@
       <div class="feature-card">
         <div class="feature-icon">🏃</div>
         <div class="feature-title">Health & recovery</div>
-        <div class="feature-desc">Oura ring sync, workout logging, macros — all in the same dashboard.</div>
+        <div class="feature-desc">Oura ring sync, workout logging, macros, all in the same dashboard.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📋</div>
@@ -397,6 +419,44 @@
   </section>
 
   <section>
+    <div class="section-label">The difference</div>
+    <h2>Own it. Don't rent it.</h2>
+    <p class="section-sub">Everything else on this list is something you pay for forever and still have to manage yourself. This is something you own.</p>
+    <div class="own-grid">
+      <div class="own-col rent">
+        <div class="own-col-label">What you're using now</div>
+        <div class="own-row">
+          <div class="own-row-title">Notion templates &amp; productivity apps</div>
+          <div class="own-row-desc">$10-30/mo forever, gone the moment you stop paying or the tool changes.</div>
+        </div>
+        <div class="own-row">
+          <div class="own-row-title">A part-time assistant or EA</div>
+          <div class="own-row-desc">$3,000+/month, and you're still the one managing them.</div>
+        </div>
+        <div class="own-row">
+          <div class="own-row-title">Generic AI chatbots</div>
+          <div class="own-row-desc">You still have to open the app, ask the question, and remember to check.</div>
+        </div>
+      </div>
+      <div class="own-col keep">
+        <div class="own-col-label">Your Personal OS</div>
+        <div class="own-row">
+          <div class="own-row-title">Built on your own accounts</div>
+          <div class="own-row-desc">Supabase, Telegram, your own logins. One build, yours to keep, forever.</div>
+        </div>
+        <div class="own-row">
+          <div class="own-row-title">No headcount, no managing</div>
+          <div class="own-row-desc">Nothing to hire, train, or replace. It just runs.</div>
+        </div>
+        <div class="own-row">
+          <div class="own-row-title">Pushed to you every morning</div>
+          <div class="own-row-desc">Your Telegram bot delivers the brief. You never have to ask.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <div class="section-label">How it works</div>
     <h2>From call to live in 48 hours.</h2>
     <div class="steps">
@@ -404,7 +464,7 @@
         <div class="step-num">1</div>
         <div class="step-content">
           <h3>Book a 20-minute call</h3>
-          <p>We walk you through the system live and learn about your life — income, goals, health setup, how you operate day to day.</p>
+          <p>We walk you through the system live and learn about your life: income, goals, health setup, how you operate day to day.</p>
         </div>
       </div>
       <div class="step">
@@ -417,7 +477,7 @@
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h3>Go live — and stay live</h3>
+          <h3>Go live, and stay live</h3>
           <p>You get a link, a Telegram bot, and a system that runs every single day whether you touch it or not.</p>
         </div>
       </div>
@@ -520,6 +580,180 @@
       if (window.fbq) fbq('trackCustom', 'CalendlyClick');
     });
   });
+</script>
+<style>
+  /* ===== Motion layer (2026-08-12): scroll reveals, hover lift, drifting glows,
+     grain, floating walkthrough bubble. Inspired by 187n.ai. ===== */
+
+  .rv { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+  .rv.in { opacity: 1; transform: none; }
+
+  .pain-item, .feature-card, .step, .own-col, .own-row {
+    transition: transform .25s cubic-bezier(.16,1,.3,1), border-color .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .pain-item:hover, .feature-card:hover, .own-row:hover {
+    transform: translateY(-3px);
+    border-color: rgba(232,200,122,0.35);
+    box-shadow: 0 10px 34px rgba(0,0,0,0.35), 0 0 0 1px rgba(232,200,122,0.08), 0 4px 22px rgba(232,200,122,0.05);
+    background: rgba(255,255,255,0.05);
+  }
+  .step:hover { transform: translateX(4px); }
+  .btn-primary, .nav-cta, .cta-btn { transition: background .15s ease, transform .18s cubic-bezier(.16,1,.3,1), box-shadow .18s ease; }
+  .btn-primary:hover, .nav-cta:hover, .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(232,200,122,0.25); }
+
+  @keyframes driftA { from { transform: translate(-50%,0) scale(1); } to { transform: translate(-46%,20px) scale(1.07); } }
+  @keyframes driftB { from { transform: translate(0,0) scale(1); } to { transform: translate(-28px,-24px) scale(1.09); } }
+  .glow-top { animation: driftA 16s ease-in-out infinite alternate; }
+  .glow-mid { animation: driftB 20s ease-in-out infinite alternate; }
+  .glow-bot { animation: driftA 24s ease-in-out infinite alternate-reverse; }
+
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: 2147483000; pointer-events: none; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+
+  .loom-fab {
+    position: fixed; right: 18px; bottom: 18px; z-index: 90;
+    width: 200px; border-radius: 14px; overflow: hidden; cursor: pointer;
+    border: 1px solid rgba(232,200,122,0.3);
+    background: #17150f;
+    box-shadow: 0 12px 44px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,0,0,0.4);
+    transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease, width .3s cubic-bezier(.16,1,.3,1);
+  }
+  .loom-fab:hover { transform: translateY(-3px); box-shadow: 0 16px 54px rgba(0,0,0,0.6), 0 4px 26px rgba(232,200,122,0.14); }
+  .loom-fab .fab-thumb { display: block; width: 100%; height: 112px; object-fit: cover; }
+  .loom-fab .fab-label { display: flex; align-items: center; gap: 9px; padding: 9px 11px; }
+  .loom-fab .fab-play {
+    width: 26px; height: 26px; border-radius: 50%; background: #e8c87a; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; position: relative;
+  }
+  .loom-fab .fab-play::before { content: ""; width: 0; height: 0; border-left: 8px solid #100f0c; border-top: 5px solid transparent; border-bottom: 5px solid transparent; margin-left: 2px; }
+  .loom-fab .fab-play::after {
+    content: ""; position: absolute; inset: -5px; border-radius: 50%;
+    border: 1.5px solid rgba(232,200,122,0.5); animation: fabPulse 2.2s ease-out infinite;
+  }
+  @keyframes fabPulse { 0% { transform: scale(.8); opacity: .9; } 70% { transform: scale(1.35); opacity: 0; } 100% { opacity: 0; } }
+  .loom-fab .fab-text strong { display: block; font-size: 12px; color: #f0ead9; font-weight: 500; }
+  .loom-fab .fab-text span { font-size: 10.5px; color: #8a7c58; }
+  .loom-fab .fab-close {
+    position: absolute; top: 6px; right: 6px; width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(10,10,8,0.75); color: #bbb; border: none; cursor: pointer;
+    font-size: 12px; line-height: 22px; text-align: center; padding: 0;
+  }
+  .loom-fab.open { width: min(440px, calc(100vw - 28px)); cursor: default; }
+  .loom-fab.open .fab-thumb, .loom-fab.open .fab-label { display: none; }
+  .loom-fab .fab-frame { display: none; width: 100%; aspect-ratio: 16 / 10; border: none; }
+  .loom-fab.open .fab-frame { display: block; }
+  .loom-fab.hidden { display: none; }
+  @media (max-width: 560px) { .loom-fab { width: 158px; } .loom-fab .fab-thumb { height: 88px; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1; transform: none; transition: none; }
+    .glow-top, .glow-mid, .glow-bot, .loom-fab .fab-play::after { animation: none; }
+  }
+</style>
+
+<div class="loom-fab" id="loomFab" role="button" aria-label="Watch the walkthrough video">
+  <button class="fab-close" id="loomFabClose" aria-label="Dismiss">✕</button>
+  <img class="fab-thumb" src="https://cdn.loom.com/sessions/thumbnails/60a1b1f3fb40465886991b7b1fe3d4f8-d8b0da2ce90eedf3.gif" alt="Walkthrough preview" loading="lazy" />
+  <div class="fab-label">
+    <span class="fab-play"></span>
+    <span class="fab-text"><strong>Watch it in action</strong><span>Live walkthrough · 6 min</span></span>
+  </div>
+</div>
+
+<script>
+(function () {
+  // Scroll reveals, staggered per section.
+  var targets = document.querySelectorAll(".section-label, section h2, .section-sub, .pain-item, .feature-card, .step, .own-col, .own-row, .video-wrap, .cta-btn, .cta-note, .urgency");
+  targets.forEach(function (el) { el.classList.add("rv"); });
+  var perParent = new Map();
+  targets.forEach(function (el) {
+    var p = el.parentElement, i = perParent.get(p) || 0;
+    el.style.transitionDelay = Math.min(i * 70, 420) + "ms";
+    perParent.set(p, i + 1);
+  });
+  // Plain scroll check instead of IntersectionObserver: leads open this from
+  // the Instagram/Facebook in-app browser, where exotic API breakage is
+  // routine, and the failure mode of a missed observer callback here is an
+  // invisible page. A rect check on scroll cannot fail that way.
+  var pending = Array.prototype.slice.call(targets);
+  var ticking = false;
+  function revealCheck() {
+    ticking = false;
+    var line = window.innerHeight * 0.92;
+    pending = pending.filter(function (el) {
+      if (el.getBoundingClientRect().top < line) { el.classList.add("in"); return false; }
+      return true;
+    });
+    if (pending.length === 0) {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    }
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(revealCheck); }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  // First check waits two frames: at script-parse time layout hasn't happened
+  // yet, every rect reads as 0, and the whole page "reveals" at once.
+  requestAnimationFrame(function () { requestAnimationFrame(revealCheck); });
+  window.addEventListener("load", onScroll);
+  // Belt and braces: whatever is still hidden after 6s reveals itself. A lead
+  // who never sees the page cannot book a call.
+  setTimeout(function () { pending.forEach(function (el) { el.classList.add("in"); }); pending = []; }, 6000);
+
+  // Floating walkthrough bubble. Click expands it into the player in place;
+  // the X collapses an open player back to the bubble, or dismisses the bubble
+  // for the rest of the session. Hidden while the inline #demo video is on
+  // screen so there are never two players visible.
+  var fab = document.getElementById("loomFab");
+  var closeBtn = document.getElementById("loomFabClose");
+  if (sessionStorage.getItem("loomFabDismissed")) fab.classList.add("hidden");
+  fab.addEventListener("click", function () {
+    if (fab.classList.contains("open")) return;
+    if (!fab.querySelector(".fab-frame")) {
+      var f = document.createElement("iframe");
+      f.className = "fab-frame";
+      f.src = "https://www.loom.com/embed/60a1b1f3fb40465886991b7b1fe3d4f8?hide_owner=true&hideEmbedTopBar=true&autoplay=1";
+      f.allow = "autoplay; fullscreen";
+      f.allowFullscreen = true;
+      fab.appendChild(f);
+    }
+    fab.classList.add("open");
+    if (window.fbq) fbq("trackCustom", "WalkthroughBubbleOpen");
+  });
+  closeBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    if (fab.classList.contains("open")) {
+      fab.classList.remove("open");
+      var f = fab.querySelector(".fab-frame");
+      if (f) f.remove();
+    } else {
+      fab.classList.add("hidden");
+      sessionStorage.setItem("loomFabDismissed", "1");
+    }
+  });
+  // Hide the bubble while the inline #demo player is on screen, same
+  // scroll-check approach as the reveals (IntersectionObserver is not
+  // trustworthy in in-app browsers).
+  var demo = document.getElementById("demo");
+  if (demo) {
+    var fabTick = false;
+    function fabCheck() {
+      fabTick = false;
+      if (fab.classList.contains("open") || sessionStorage.getItem("loomFabDismissed")) return;
+      var r = demo.getBoundingClientRect();
+      var overlaps = r.top < window.innerHeight * 0.75 && r.bottom > window.innerHeight * 0.25;
+      fab.style.visibility = overlaps ? "hidden" : "visible";
+    }
+    window.addEventListener("scroll", function () {
+      if (!fabTick) { fabTick = true; requestAnimationFrame(fabCheck); }
+    }, { passive: true });
+    fabCheck();
+  }
+})();
 </script>
 </body>
 </html>
