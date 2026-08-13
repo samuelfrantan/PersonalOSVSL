@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sam Franco — BC Business Buyer</title>
+  <meta name="description" content="I buy BC service businesses and keep building what you started. No brokers, no games — direct from a guy who knows the trades.">
+  <link rel="canonical" href="https://samfranco.ca/acquisitions">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://samfranco.ca/acquisitions">
+  <meta property="og:title" content="Sam Franco — BC Business Buyer">
+  <meta property="og:description" content="I buy BC service businesses and keep building what you started. No brokers, no games — direct from a guy who knows the trades.">
+  <meta property="og:image" content="https://samfranco.ca/og-acquisitions.jpg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111827;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    .on-dark a:focus-visible { outline-color: #93c5fd; }
+
+    /* ── layout ── */
+    .wrap { max-width: 896px; margin: 0 auto; padding: 0 16px; }
+    .card { border-radius: 24px; margin-bottom: 12px; }
+    .shadowed {
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 8px 32px rgba(37,99,235,0.06);
+    }
+
+    /* ── nav ── */
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 896px; margin: 0 auto; padding: 20px 32px;
+    }
+    .brand { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: #1f2937; }
+    .nav-links { display: none; gap: 28px; }
+    .nav-links a { font-size: 12px; color: #64748b; transition: color .15s; }
+    .nav-links a:hover { color: #374151; }
+
+    /* ── section label ── */
+    .label-row { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; white-space: nowrap; color: #2563eb;
+    }
+    .label-line { flex: 1; height: 1px; background: #dbeafe; }
+    .label-row.dark .label { color: #93c5fd; }
+    .label-row.dark .label-line { background: rgba(255,255,255,0.12); }
+
+    /* ── hero ── */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 64px 40px 56px;
+      background: linear-gradient(150deg, #e0edff 0%, #f3f8ff 55%, #ffffff 100%);
+    }
+    .hero-grid { position: absolute; top: 0; right: 0; width: 288px; height: 288px; opacity: 0.09; }
+    .hero-content { position: relative; }
+    .eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; margin-bottom: 20px; color: #2563eb;
+    }
+    .hero h1 {
+      font-size: 3.75rem; font-weight: 600; letter-spacing: -0.025em;
+      line-height: 1.04; margin-bottom: 24px; color: #111827;
+    }
+    .hero-sub { font-size: 20px; color: #6b7280; line-height: 1.625; max-width: 512px; }
+    .hero-sub strong { color: #1f2937; font-weight: 600; }
+
+    /* ── what i'm doing ── */
+    .doing { display: flex; flex-direction: row; overflow: hidden; min-height: 300px; }
+    .doing-text {
+      flex: 1; min-width: 0; padding: 32px 24px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .doing-copy p { font-size: 13px; line-height: 1.8; color: #4b5563; }
+    .doing-copy p + p { margin-top: 12px; }
+    .doing-photo { position: relative; flex-shrink: 0; width: 38%; }
+    .doing-photo img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+    }
+    .doing-fade {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.25) 22%, rgba(255,255,255,0) 45%);
+    }
+
+    /* ── CTA sections (slate) ── */
+    .cta { background: #0f172a; padding: 48px 32px; text-align: center; }
+    .cta-body {
+      font-size: 15px; line-height: 1.625; color: #94a3b8;
+      margin: 0 auto 32px; max-width: 672px;
+    }
+    .btn-row { display: flex; flex-direction: column; gap: 12px; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 32px; border-radius: 12px;
+      font-weight: 600; font-size: 15px; transition: opacity .15s;
+    }
+    .btn-primary { background: #2563eb; color: #ffffff; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-outline { background: transparent; border: 1.5px solid #334155; color: #94a3b8; }
+    .btn-outline:hover { opacity: 0.8; }
+    .cta-note { margin-top: 20px; font-size: 12px; font-style: italic; color: #94a3b8; }
+
+    /* ── promises (cobalt) ── */
+    .promises { background: #2563eb; padding: 44px 40px; }
+    .promise-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 4px; }
+    .promise { border-radius: 16px; padding: 24px; background: #1d4ed8; }
+    .promise h3 {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; margin-bottom: 12px; color: #bfdbfe;
+    }
+    .promise p { font-size: 14px; line-height: 1.625; color: rgba(219,234,254,0.8); }
+
+    /* ── who we are ── */
+    .people { padding: 44px 40px; }
+    .people-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 4px; }
+    .person { border-radius: 16px; overflow: hidden; border: 1px solid #e8f0fe; }
+    .person-photo { height: 288px; background: #f9fafb; }
+    .person-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .person-info { padding: 24px; }
+    .person-info h3 { font-size: 15px; font-weight: 600; color: #111827; }
+    .person-role { font-size: 12px; font-weight: 600; margin-bottom: 12px; color: #2563eb; }
+    .person-bio { font-size: 13px; color: #6b7280; line-height: 1.625; margin-bottom: 16px; }
+    .linkedin-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 600; border-radius: 8px; padding: 8px 16px;
+      background: #dbeafe; color: #2563eb; transition: opacity .15s;
+    }
+    .linkedin-btn:hover { opacity: 0.8; }
+    .linkedin-btn svg { flex-shrink: 0; }
+
+    /* ── experience ── */
+    .experience { background: #f0f5ff; padding: 44px 40px; }
+    .exp-list { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+    .exp-row {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 24px; border-radius: 16px; background: #ffffff;
+      box-shadow: 0 1px 3px rgba(37,99,235,0.07);
+    }
+    .exp-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 20px; background: #dbeafe;
+    }
+    .exp-row h3 { font-size: 14px; font-weight: 600; color: #1f2937; margin-bottom: 4px; }
+    .exp-row p { font-size: 13px; color: #6b7280; line-height: 1.625; }
+
+    /* ── portfolio (avismo) ── */
+    .portfolio { padding: 44px 40px; }
+    .avismo {
+      border-radius: 16px; padding: 24px; margin-top: 4px;
+      display: flex; flex-direction: column; gap: 20px; align-items: flex-start;
+      background: #f5f8ff; border: 1px solid #dbeafe;
+    }
+    .avismo-logo {
+      width: 64px; height: 64px; border-radius: 16px; overflow: hidden;
+      flex-shrink: 0; background: #ffffff; border: 1px solid #dbeafe;
+    }
+    .avismo-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .avismo-body { flex: 1; }
+    .avismo-name { font-size: 15px; font-weight: 600; color: #111827; margin-bottom: 4px; }
+    .avismo-link { font-size: 12px; font-weight: 400; margin-left: 4px; color: #2563eb; }
+    .avismo-desc { font-size: 13px; color: #6b7280; line-height: 1.625; margin-bottom: 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 11px; font-weight: 500; padding: 4px 12px;
+      border-radius: 9999px; background: #dbeafe; color: #2563eb;
+    }
+
+    /* ── what i'm looking for (slate) ── */
+    .lookingfor { background: #0f172a; padding: 48px 40px; }
+    .lf-eyebrow {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; margin-bottom: 40px; color: #3b82f6;
+    }
+    .lf-head { font-size: 2.25rem; font-weight: 600; line-height: 1.25; color: #ffffff; margin-bottom: 8px; }
+    .lf-head2 { font-size: 2.25rem; font-weight: 600; line-height: 1.25; color: #60a5fa; margin-bottom: 32px; }
+    .lf-lead { font-size: 14px; margin-bottom: 32px; color: #94a3b8; }
+    .criteria { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .criteria.last { margin-bottom: 48px; }
+    .criterion { border-radius: 16px; padding: 20px; background: #1e293b; }
+    .criterion .num { font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #334155; }
+    .criterion h3 { font-size: 13px; font-weight: 600; color: #ffffff; margin-bottom: 8px; }
+    .criterion p { font-size: 12px; line-height: 1.625; color: #94a3b8; }
+    .lf-closer { font-size: 15px; color: #93c5fd; }
+
+    /* ── why i made this page ── */
+    .why { padding: 44px 40px; }
+    .why-copy { max-width: 672px; }
+    .why-copy p { font-size: 15px; line-height: 1.9; color: #6b7280; }
+    .why-copy p + p { margin-top: 16px; }
+    .why-copy .lede { font-size: 20px; font-weight: 600; line-height: 1.375; color: #111827; }
+
+    /* ── final CTA ── */
+    .final-cta { background: #0f172a; padding: 56px 32px; text-align: center; margin-bottom: 24px; }
+    .final-eyebrow {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; margin-bottom: 20px; color: #94a3b8;
+    }
+    .final-cta h2 { font-size: 1.875rem; font-weight: 600; line-height: 1.375; color: #ffffff; margin-bottom: 16px; }
+    .final-body {
+      font-size: 15px; line-height: 1.625; color: #94a3b8;
+      margin: 0 auto 40px; max-width: 448px;
+    }
+
+    /* ── footer ── */
+    footer { padding: 24px; text-align: center; }
+    footer p { font-size: 12px; color: #6b7280; }
+    footer a { color: #6b7280; text-decoration: underline; text-underline-offset: 2px; transition: color .15s; }
+    footer a:hover { color: #334155; }
+
+    /* ── ≥640px ── */
+    @media (min-width: 640px) {
+      .nav-links { display: flex; }
+      .hero h1 { font-size: 4.5rem; }
+      .doing-text { padding: 44px 40px; }
+      .doing-copy p { font-size: 15px; line-height: 1.9; }
+      .doing-copy p + p { margin-top: 16px; }
+      .cta { padding: 48px 56px; }
+      .cta-body { font-size: 17px; }
+      .btn-row { flex-direction: row; }
+      .promise-grid { grid-template-columns: 1fr 1fr; }
+      .people-grid { grid-template-columns: 1fr 1fr; }
+      .avismo { flex-direction: row; }
+      .criteria { grid-template-columns: repeat(4, 1fr); }
+      .final-cta { padding: 56px; }
+      .final-cta h2 { font-size: 2.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="/">sam franco</a>
+    <div class="nav-links">
+      <a href="#about">about</a>
+      <a href="#experience">experience</a>
+      <a href="#what-i-look-for">what i look for</a>
+      <a href="#contact">contact</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+
+    <!-- ── HERO ── -->
+    <section id="about" class="card hero">
+      <svg class="hero-grid" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M20 0H0V20" fill="none" stroke="#2563eb" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="280" height="280" fill="url(#grid)"/>
+      </svg>
+      <div class="hero-content">
+        <p class="eyebrow">vancouver, bc · buyer</p>
+        <h1>hi, i'm sam.</h1>
+        <p class="hero-sub">i'm looking to buy a bc service business — <strong>and keep building the legacy that you started.</strong></p>
+      </div>
+    </section>
+
+    <!-- ── WHAT I'M DOING ── -->
+    <section class="card shadowed doing">
+      <div class="doing-text">
+        <div class="label-row">
+          <h2 class="label">what i'm doing</h2>
+          <div class="label-line"></div>
+        </div>
+        <div class="doing-copy">
+          <p>i'm 20 years old and i'm looking to acquire an owner-operated service business in bc. not to flip it. not to gut it. to run it, grow it, and treat it the way it deserves to be treated.</p>
+          <p>i come from a sales and trades-marketing background. i've worked directly with cleaning companies, hvac, plumbing, and roofing businesses — running their ads, seo, and digital strategy. i know what good operations look like, and i know what's missing in most of them.</p>
+          <p>if you've built something and you're starting to think about what's next — i'd love to have a conversation.</p>
+        </div>
+      </div>
+      <div class="doing-photo">
+        <img src="images/sam.jpg" alt="Sam Franco" width="543" height="576">
+        <div class="doing-fade" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ── MINI CTA ── -->
+    <section class="card cta on-dark">
+      <p class="cta-body">i'm on a mission to buy good bc service businesses and give them a permanent home. if this sounds like what you've built — i'd love to just chat.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://calendly.com/samuelfrantan/15mins-with-sam" target="_blank" rel="noopener noreferrer">book a 15-min call with me</a>
+        <a class="btn btn-outline" href="mailto:samuelfrantan@gmail.com?subject=Business%20Inquiry">or just reply to my email</a>
+      </div>
+      <p class="cta-note">a real person (me) reads every single one.</p>
+    </section>
+
+    <!-- ── WHAT I PROMISE ── -->
+    <section class="card promises on-dark">
+      <div class="label-row dark">
+        <h2 class="label">what i promise you</h2>
+        <div class="label-line"></div>
+      </div>
+      <div class="promise-grid">
+        <div class="promise">
+          <h3>fair offer</h3>
+          <p>a number that reflects what you actually built — not what an algorithm spits out.</p>
+        </div>
+        <div class="promise">
+          <h3>your team stays</h3>
+          <p>the people who made it work keep their jobs. that's not negotiable.</p>
+        </div>
+        <div class="promise">
+          <h3>no broker fees</h3>
+          <p>i come direct. more money in your pocket, less friction in the process.</p>
+        </div>
+        <div class="promise">
+          <h3>long-term owner</h3>
+          <p>i'm not flipping this. i'm building a career out of running it well.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHO WE ARE ── -->
+    <section class="card shadowed people">
+      <div class="label-row">
+        <h2 class="label">who we are</h2>
+        <div class="label-line"></div>
+      </div>
+      <div class="people-grid">
+        <div class="person">
+          <div class="person-photo">
+            <img src="images/sam.avif" alt="Sam Franco" width="375" height="334">
+          </div>
+          <div class="person-info">
+            <h3>Sam Franco</h3>
+            <p class="person-role">Buyer &amp; Operator</p>
+            <p class="person-bio">Started in sales at 17. By 20, managing the full BC territory for a $6M+ distribution operation. Before that, ran a media company helping cleaning, HVAC, plumbing, and roofing businesses grow through SEO and paid ads. That's how I fell in love with this industry.</p>
+            <a class="linkedin-btn" href="https://www.linkedin.com/in/samuelfrantan/" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <div class="person">
+          <div class="person-photo">
+            <img src="images/caesar.avif" alt="Caesar Franco" width="375" height="334" loading="lazy" decoding="async">
+          </div>
+          <div class="person-info">
+            <h3>Caesar Franco</h3>
+            <p class="person-role">Advisor &amp; Partner</p>
+            <p class="person-bio">Built a business from zero to 30+ employees in Colombia, ran it for 18 years, and sold it. He brings real operator experience — what it actually takes to scale, lead a team, and exit on your terms. He's involved because he's done it.</p>
+            <a class="linkedin-btn" href="https://www.linkedin.com/in/franco-cesar-017060224/" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EXPERIENCE ── -->
+    <section id="experience" class="card experience">
+      <div class="label-row">
+        <h2 class="label">our experience</h2>
+        <div class="label-line"></div>
+      </div>
+      <div class="exp-list">
+        <div class="exp-row">
+          <div class="exp-icon" aria-hidden="true">📊</div>
+          <div>
+            <h3>Sales &amp; Distribution — BC Territory</h3>
+            <p>Managed and grew the full BC territory for a $6M+ wholesale distribution operation. Handled account management, team optimization, and built automation into the sales process.</p>
+          </div>
+        </div>
+        <div class="exp-row">
+          <div class="exp-icon" aria-hidden="true">📱</div>
+          <div>
+            <h3>Trades Marketing — Media Company</h3>
+            <p>Ran a media company specializing in SEO, Google Ads, and Facebook campaigns for trades businesses — roofing, HVAC, plumbing, commercial cleaning. Worked directly with owners. That's where I learned this industry from the inside out.</p>
+          </div>
+        </div>
+        <div class="exp-row">
+          <div class="exp-icon" aria-hidden="true">🏆</div>
+          <div>
+            <h3>Built, Scaled &amp; Exited — Firsthand</h3>
+            <p>Caesar Franco built a business from the ground up, scaled it to 30+ employees over 18 years, and sold it. We're not just studying acquisitions — we know what the other side of the table looks like.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PORTFOLIO ── -->
+    <section class="card shadowed portfolio">
+      <div class="label-row">
+        <h2 class="label">our portfolio company</h2>
+        <div class="label-line"></div>
+      </div>
+      <div class="avismo">
+        <div class="avismo-logo">
+          <img src="images/avismo-logo.avif" alt="Avismo Labels logo" width="375" height="375" loading="lazy" decoding="async">
+        </div>
+        <div class="avismo-body">
+          <p class="avismo-name">Avismo Labels <a class="avismo-link" href="https://avismo.ca" target="_blank" rel="noopener noreferrer">↗ avismo.ca</a></p>
+          <p class="avismo-desc">our family operates a full-service print &amp; labels company in surrey, bc — 10+ years running, 175+ clients. every business we acquire gets this as an in-house resource: better signage, branded materials, faster turnaround, lower cost. it's not a bonus. it's built in.</p>
+          <div class="tags">
+            <span class="tag">Digital Labels</span>
+            <span class="tag">Storefront Signs</span>
+            <span class="tag">Business Cards</span>
+            <span class="tag">Flyers &amp; Brochures</span>
+            <span class="tag">Sandwich Boards</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHAT I'M LOOKING FOR ── -->
+    <section id="what-i-look-for" class="card lookingfor on-dark">
+      <h2 class="lf-eyebrow">the businesses i'm looking for</h2>
+      <p class="lf-head">i'm not a fit for every business.</p>
+      <p class="lf-head2">and that's okay.</p>
+      <p class="lf-lead">the businesses that get me excited usually have:</p>
+      <div class="criteria">
+        <div class="criterion">
+          <p class="num" aria-hidden="true">01</p>
+          <h3>real profit.</h3>
+          <p>the business makes money today. you can back it up with numbers.</p>
+        </div>
+        <div class="criterion">
+          <p class="num" aria-hidden="true">02</p>
+          <h3>a few years behind them.</h3>
+          <p>3+ years in business. you've made it through the hard part.</p>
+        </div>
+        <div class="criterion">
+          <p class="num" aria-hidden="true">03</p>
+          <h3>a real team.</h3>
+          <p>it doesn't live and die on you being there every single day.</p>
+        </div>
+        <div class="criterion">
+          <p class="num" aria-hidden="true">04</p>
+          <h3>a good name.</h3>
+          <p>customers come back. your reputation does the talking.</p>
+        </div>
+      </div>
+      <div class="criteria last">
+        <div class="criterion">
+          <p class="num" aria-hidden="true">05</p>
+          <h3>honest books.</h3>
+          <p>clean financials. no sketchy stuff. i'm not here to dig up problems.</p>
+        </div>
+      </div>
+      <p class="lf-closer">if that sounds like what you've built — i'd love to talk.</p>
+    </section>
+
+    <!-- ── WHY I MADE THIS PAGE ── -->
+    <section class="card shadowed why">
+      <div class="label-row">
+        <h2 class="label">why i made this page</h2>
+        <div class="label-line"></div>
+      </div>
+      <div class="why-copy">
+        <p class="lede">cold emails are easy to ignore. i get that.</p>
+        <p>i made this page so that if you're a business owner in bc and you get a message from me, you can come here and actually see who i am. not a faceless pe fund. not a holding company with a fancy name. just a 20-year-old from surrey who knows the trades, has real experience, and wants to buy one good business and run it right.</p>
+        <p>the trades industry doesn't always get the recognition it deserves. these businesses keep cities running — and when it's time for an owner to step back, the process shouldn't feel like it's stacked against them. i don't think it needs to be that complicated.</p>
+        <p>if you're thinking about selling — even if it's 3 years away — i'd rather have a 15-minute call now than send you 10 more emails you'll delete. the best deals start with a conversation, not a term sheet.</p>
+      </div>
+    </section>
+
+    <!-- ── FINAL CTA ── -->
+    <section id="contact" class="card final-cta on-dark">
+      <p class="final-eyebrow">get in touch</p>
+      <h2>even if you're 5 years away from selling — let's talk now.</h2>
+      <p class="final-body">the best deals don't happen when someone is desperate to sell. they happen when two people build trust over time. i'd rather know you early.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://calendly.com/samuelfrantan/15mins-with-sam" target="_blank" rel="noopener noreferrer">book a 15-min call with me</a>
+        <a class="btn btn-outline" href="mailto:samuelfrantan@gmail.com?subject=Business%20Inquiry">or just reply to my email</a>
+      </div>
+      <p class="cta-note">a real person (me) reads every single one.</p>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>sam franco · surrey, bc · samuelfrantan@gmail.com · <a href="/">ai os</a></p>
+  </footer>
+
+</body>
+</html>
